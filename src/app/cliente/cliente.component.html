@@ -1,0 +1,35 @@
+<div class="row">
+    <div class="col s3"></div>
+    <div class="col s6">
+        <div class="row">
+            <form class="col s12">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input [(ngModel)]="cliente.nome" [ngModelOptions]="{standalone: true}" id="nome" type="text" class="validate">
+                        <label for="nome"><i class="material-icons">edit</i>Nome</label>
+                        <span class="helper-text" data-error="wrong" data-success="right">Fulano De Tal</span>
+                    </div>
+                    <div class="input-field col s12">
+                        <input [(ngModel)]="cliente.cpf" [ngModelOptions]="{standalone: true}" id="cpf" type="text" class="validate">
+                        <label for="cpf"><i class="material-icons">edit</i>CPF</label>
+                        <span class="helper-text" data-error="wrong" data-success="right">000.000.000-00</span>
+                    </div>
+                    <div class="input-field col s12">
+                        <input [(ngModel)]="cliente.dataDeNascimento" [ngModelOptions]="{standalone: true}" id="data" type="date" class="validate">
+                        <label for="data">Data De Nascimento</label>
+                    </div>
+                </div>
+            </form>
+            <button (click)="cadastrarCliente()" class="waves-effect waves-light btn-small"><i class="material-icons right">add</i>Cadastrar</button> <br>
+            <button (click)="atualizarCliente()" id="btn-atualizar" class="waves-effect waves-light btn-small"><i class="material-icons right">update</i>Atualizar</button>
+
+            <div id="loading" *ngIf="carregamento === true">
+                <img src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif" style="width:150px;height:150px;" />
+            </div>
+        </div>        
+    </div>
+    <div class="col s3">
+        <p class="sucesso" *ngIf="sucessoCadastroCliente === true">Cadastrado Com Sucesso!</p>
+        <p class="erro" *ngIf="falhaCadastroCliente === true">Erro No Cadastro De Cliente!</p>
+    </div>
+</div>

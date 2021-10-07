@@ -1,0 +1,41 @@
+<div class="row">
+    <div class="col s3"></div>
+    <div class="col s6">
+        <div class="row">
+            <form class="col s12">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input [(ngModel)]="produto.nome" [ngModelOptions]="{standalone: true}" id="nome" type="text" class="validate">
+                        <label for="nome"><i class="material-icons">edit</i>Nome</label>
+                        <span class="helper-text" data-error="wrong" data-success="right">Ex: Feijão</span>
+                    </div>
+                    <div class="input-field col s12">
+                        <input [(ngModel)]="produto.descricao" [ngModelOptions]="{standalone: true}" id="descricao" type="text" class="validate">
+                        <label for="descricao"><i class="material-icons">edit</i>Descrição</label>
+                        <span class="helper-text" data-error="wrong" data-success="right">Descrição</span>
+                    </div>
+                    <div class="input-field col s12">
+                        <input [(ngModel)]="produto.preco" [ngModelOptions]="{standalone: true}" id="preco" type="number" step=".01" class="validate">
+                        <label for="preco"><i class="material-icons">edit</i>Preço</label>
+                        <span class="helper-text" data-error="wrong" data-success="right">Ex: 150.00</span>
+                    </div>
+                    <div class="input-field col s12">
+                        <input [(ngModel)]="produto.quantidade" [ngModelOptions]="{standalone: true}" id="quantidade" type="number" class="validate">
+                        <label for="quantidade"><i class="material-icons">edit</i>Quantidade</label>
+                        <span class="helper-text" data-error="wrong" data-success="right">Ex: 10</span>
+                    </div>
+                </div>
+            </form>
+            <button (click)="cadastrarProduto()" class="waves-effect waves-light btn-small"><i class="material-icons right">add</i>Cadastrar</button> <br>
+            <button (click)="atualizarProduto()" id="btn-atualizar" class="waves-effect waves-light btn-small"><i class="material-icons right">update</i>Atualizar</button>
+
+            <div id="loading" *ngIf="carregamento === true">
+                <img src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif" style="width:150px;height:150px;" />
+            </div>
+        </div>        
+    </div>
+    <div class="col s3">
+        <p class="sucesso" *ngIf="sucessoCadastroProduto === true">Cadastrado Com Sucesso!</p>
+        <p class="erro" *ngIf="falhaCadastroProduto === true">Erro No Cadastro De Produto!</p>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+button#btn-atualizar {
+    margin-top: 30px;
+}
+
+p.sucesso {
+    padding: 10px;
+    border-radius: 10px;
+    background-color: black;
+    color: white;
+}
+
+p.erro {
+    padding: 10px;
+    border-radius: 10px;
+    background-color: red;
+    color: white;
+}
