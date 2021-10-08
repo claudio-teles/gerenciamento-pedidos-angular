@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RequisicaoHttpService } from '../requisicao-http.service';
+import { ClienteSingleTon } from './cliente-singleton';
 
 @Component({
   selector: 'app-cliente',
@@ -38,7 +39,7 @@ export class ClienteComponent implements OnInit {
         if (value) {
           this.sucessoCadastroCliente = true;
           this.carregamento = false;
-          setTimeout(() => this.recarregarPagina(), 4000);
+          setTimeout(() => this.recarregarPagina(), 2000);
         }
         console.log(value);
       },
@@ -46,7 +47,7 @@ export class ClienteComponent implements OnInit {
         if (error) {
           this.falhaCadastroCliente = true;
           this.carregamento = false;
-          setTimeout(() => this.recarregarPagina(), 4000);
+          setTimeout(() => this.recarregarPagina(), 2000);
         }
         console.log(error);
       }
@@ -54,9 +55,35 @@ export class ClienteComponent implements OnInit {
   }
 
   atualizarCliente() {
+    this.carregamento = true;
+    this.requisicaoHttp.enviarAtualizacaoCliente(this.urlBase+"/cliente", this.cliente).subscribe(
+      value => {
+        if (value) {
+          this.sucessoAtualizacaoCliente = true;
+          this.carregamento = false;
+          setTimeout(() => this.recarregarPagina(), 2000);
+        }
+        console.log(value);
+      },
+      error => {
+        if (error) {
+          this.falhaCadastroCliente = true;
+          this.carregamento = false;
+          setTimeout(() => this.recarregarPagina(), 2000);
+        }
+        console.log(error);
+      }
+    );
     console.log(this.cliente);
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.cliente.id = ClienteSingleTon.getInstanciaCliente().getCliente()['id'];
+    this.cliente.nome = ClienteSingleTon.getInstanciaCliente().getCliente()['nome'];
+    this.cliente.cpf = ClienteSingleTon.getInstanciaCliente().getCliente()['cpf'];
+    this.cliente.dataDeNascimento = ClienteSingleTon.getInstanciaCliente().getCliente()['dataDeNascimento'];
+
+    console.log(this.cliente);
+  }
 
 }

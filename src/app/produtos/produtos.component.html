@@ -1,1 +1,30 @@
-<p>produtos works!</p>
+<div class="row">
+    <div class="col s1"></div>
+    <div class="col s10">
+        <div id="loading" *ngIf="carregamento === true">
+            <img src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif" style="width:150px;height:150px;" />
+        </div>
+        <div class="row">
+            <p id="p-carrinho"><i class="material-icons left">add_shopping_cart</i>Carrinho: {{quantidade}}</p>
+            <ul *ngFor="let p of produtos; let i = index">
+                <li class="col s3">
+                    <div id="pdt">
+                        <p>
+                            Código: {{p.id}} <br>
+                            Nome: {{p.nome}} <br>
+                            Descrição: {{p.descricao}} <br>
+                            Preço: {{p.preco}} <br>
+                            Quantidade: {{p.quantidade}} <br>
+                        </p>
+                        <div id="bloco-botoes">
+                            <a href="/produto/{{p.id}}" id="btn-cart" class="waves-effect waves-light btn"><i class="material-icons right">content_paste</i>Detalhe</a>
+                            <button id="btn-cart" (click)="atualizarProduto(p)" class="waves-effect waves-light btn" ><i class="material-icons right">edit</i>Atualizar</button>
+                            <button id="btn-cart" (click)="selecionarProdutoPedido(p)" class="waves-effect waves-light btn" ><i class="material-icons right">check_circle</i>Selecionar</button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="col s1"></div>
+</div>

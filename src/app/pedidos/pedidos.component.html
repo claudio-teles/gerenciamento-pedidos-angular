@@ -1,1 +1,36 @@
-<p>pedidos works!</p>
+<div class="row">
+    <div class="col s1"></div>
+    <div class="col s10">
+        <div class="row">
+            <ul *ngFor="let pedido of pedidos">
+                <li class="col s4">
+                    <div id="fundo-pedido">
+                        <p>
+                            Código Do Pedido: {{pedido.id}} <br>
+                            Código Do Cliente: {{pedido.cliente.id}} <br>
+                            Nome Do Cliente: {{pedido.cliente.nome}} <br>
+                        </p>
+                        <ul *ngFor="let produto of pedido.produtos">
+                            <li>
+                                <div>
+                                    <p id="p-borda">
+                                        Código Do Produto: {{produto.id}} <br>
+                                        Nome Do Produto: {{produto.nome}} <br>
+                                        Descrição: {{produto.descricao}}
+                                        Preço: {{produto.preco}} <br>
+                                        Quantidade: {{produto.quantidade}} <br>
+                                    </p>
+                                </div>
+                            </li>
+                        </ul>
+                        <p>
+                            Data Da compra: {{pedido.dataDaCompra | date: 'dd/MM/yyyy'}} <br>
+                            Total Da Compra: {{pedido.totalDaCompra}} <br>
+                        </p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="col s1"></div>
+</div>

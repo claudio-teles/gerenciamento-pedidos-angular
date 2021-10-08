@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProdutosSingleton } from '../produtos/produtos-singleton';
 
 @Component({
   selector: 'app-navbar',
@@ -8,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
 export class NavbarComponent implements OnInit {
 
   constructor() {}
+
+  quantidadeDeItensNoCarrinho = 0;
 
   ngOnInit(): void {}
 

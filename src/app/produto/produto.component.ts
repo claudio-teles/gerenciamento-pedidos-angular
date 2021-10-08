@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProdutosSingleton } from '../produtos/produtos-singleton';
 import { RequisicaoHttpService } from '../requisicao-http.service';
 
 @Component({
@@ -55,6 +56,12 @@ export class ProdutoComponent implements OnInit {
     console.log(this.produto);
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.produto.id = ProdutosSingleton.getInstanciaDeProduto().getProduto()['id'];
+    this.produto.nome = ProdutosSingleton.getInstanciaDeProduto().getProduto()['nome'];
+    this.produto.descricao = ProdutosSingleton.getInstanciaDeProduto().getProduto()['descricao'];
+    this.produto.preco = ProdutosSingleton.getInstanciaDeProduto().getProduto()['preco'];
+    this.produto.quantidade = ProdutosSingleton.getInstanciaDeProduto().getProduto()['quantidade'];
+  }
 
 }
