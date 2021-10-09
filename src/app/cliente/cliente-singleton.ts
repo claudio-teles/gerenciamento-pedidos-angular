@@ -29,5 +29,14 @@ export class ClienteSingleTon {
         this.cliente.cpf = cliente.cpf;
         this.cliente.dataDeNascimento = cliente.dataDeNascimento;
     }
+
+    public resetCliente(): void {
+        this.cliente = {
+            id: null,
+            nome: "",
+            cpf: "",
+            dataDeNascimento: ""
+        }
+    }
     
 }

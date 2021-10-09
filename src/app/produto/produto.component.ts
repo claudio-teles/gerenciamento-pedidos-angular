@@ -36,7 +36,7 @@ export class ProdutoComponent implements OnInit {
         if (value) {
           this.sucessoCadastroProduto = true;
           this.carregamento = false;
-          setTimeout(() => this.recarregarPagina(), 4000);
+          setTimeout(() => this.recarregarPagina(), 2000);
         }
         console.log(value);
       },
@@ -44,7 +44,7 @@ export class ProdutoComponent implements OnInit {
         if (error) {
           this.falhaCadastroProduto = true;
           this.carregamento = false;
-          setTimeout(() => this.recarregarPagina(), 4000);
+          setTimeout(() => this.recarregarPagina(), 2000);
         }
         console.log(error);
       }

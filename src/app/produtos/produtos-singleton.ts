@@ -25,6 +25,10 @@ export class ProdutosSingleton {
         return this.produto;
     }
 
+    public setProdutos(produtos: Array<any>): void {
+        this.carrinho = produtos;
+    }
+
     public setProduto(produto: any): void {
         this.produto.id = produto['id'];
         this.produto.nome = produto['nome'];
@@ -39,6 +43,10 @@ export class ProdutosSingleton {
 
     public adicionarProduto(produto: any): void {
         this.carrinho.push(produto);
+    }
+
+    public limparCarrinho(): void {
+        this.carrinho = [];
     }
 
 }

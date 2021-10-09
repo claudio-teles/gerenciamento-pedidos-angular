@@ -1,0 +1,33 @@
+div#fundo {
+    color: black;
+    margin-left: 80px;
+}
+
+div#loading {
+    text-align: center;
+}
+
+li {
+    border-radius: 10px;
+    background-color: blueviolet;
+    color: white;
+}
+
+#p-produtos {
+    border-radius: 10px;
+    margin-left: 10px;
+}
+
+p.sucesso {
+    padding: 10px;
+    border-radius: 10px;
+    background-color: black;
+    color: white;
+}
+
+p.erro {
+    padding: 10px;
+    border-radius: 10px;
+    background-color: red;
+    color: white;
+}

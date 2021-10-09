@@ -5,7 +5,7 @@
             <img src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif" style="width:150px;height:150px;" />
         </div>
         <div class="row">
-            <p id="p-carrinho"><i class="material-icons left">add_shopping_cart</i>Carrinho: {{quantidade}}</p>
+            <p id="p-carrinho"><i class="material-icons left">shopping_cart</i>Carrinho: {{quantidade}}</p>
             <ul *ngFor="let p of produtos; let i = index">
                 <li class="col s3">
                     <div id="pdt">
@@ -19,7 +19,7 @@
                         <div id="bloco-botoes">
                             <a href="/produto/{{p.id}}" id="btn-cart" class="waves-effect waves-light btn"><i class="material-icons right">content_paste</i>Detalhe</a>
                             <button id="btn-cart" (click)="atualizarProduto(p)" class="waves-effect waves-light btn" ><i class="material-icons right">edit</i>Atualizar</button>
-                            <button id="btn-cart" (click)="selecionarProdutoPedido(p)" class="waves-effect waves-light btn" ><i class="material-icons right">check_circle</i>Selecionar</button>
+                            <button id="btn-cart" (click)="selecionarProdutoPedido(p)" class="waves-effect waves-light btn" ><i class="material-icons right">exposure_plus_1</i>Adicionar</button>
                         </div>
                     </div>
                 </li>

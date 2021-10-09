@@ -1,1 +1,31 @@
-<p>pedido works!</p>
+<div class="row">
+    <div class="col s3"></div>
+    <div class="col s6">
+        <div id="fundo">
+            <h6 for="id-cliente">Código Do Cliente: {{pedido.cliente['id']}}</h6>
+            <h6 for="nome">Nome Do Cliente: {{pedido.cliente['nome']}}</h6>
+            <div>
+                <h6 style="color: blueviolet;">Produtos</h6>
+                <ul *ngFor="let produto of pedido.produtos; let i = index">
+                    <li>
+                        <p id="p-produtos">Código Do Produto: {{produto['id']}}</p>
+                        <p id="p-produtos">Nome Do Produto: {{produto['nome']}}</p>
+                        <p id="p-produtos">Descrição Do Produto: {{produto['descricao']}}</p>
+                        <p id="p-produtos">Preço Do Produto: {{produto['preco']}}</p>
+                        <p id="p-produtos">Quantidade Do Produto: {{produto['quantidade']}}</p>
+                    </li>
+                </ul>
+            </div>
+            <h6>Data Da Compra: {{pedido.dataDaCompra | date: 'dd/MM/yyyy'}}</h6>
+            <h6>Total Da Compra: {{pedido.totalDaCompra}}</h6> <br>
+            <button (click)="fazerPedido()" class="waves-effect waves-light btn-small"><i class="material-icons right">add</i>Finalizar Pedido</button>
+            <div id="loading" *ngIf="carregamento === true">
+                <img src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif" style="width:150px;height:150px;" />
+            </div>
+        </div>
+    </div>
+    <div class="col s3">
+        <p class="sucesso" *ngIf="sucessoCadastroPedido === true">Cadastrado Com Sucesso!</p>
+        <p class="erro" *ngIf="falhaCadastroPedido === true">Erro No Cadastro De Pedido!</p>
+    </div>
+</div>
